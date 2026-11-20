@@ -37,12 +37,39 @@ return [
     |
     */
 
+
+    // by default--> before api 
+
+    // 'guards' => [
+    //     'web' => [
+    //         'driver' => 'session',
+    //         'provider' => 'users',
+    //     ],
+    // ],
+
+    // by default--> before api 
+
+
+
+    // after api ---> jwt changes
+
+
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
+    'web' => [
+        'driver' => 'session',
+        'provider' => 'users',
     ],
+
+    'api' => [
+        'driver' => 'jwt',
+        'provider' => 'users',
+    ],
+],
+
+
+    // after api ---> changes
+
+
 
     /*
     |--------------------------------------------------------------------------
