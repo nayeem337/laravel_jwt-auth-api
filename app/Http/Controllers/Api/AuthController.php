@@ -7,6 +7,11 @@ use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 
+use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Support\Facades\Auth;
+
+
+
 class AuthController extends Controller
 {
     /**
@@ -33,4 +38,29 @@ class AuthController extends Controller
             ],
         ], 201);
     }
+
+
+public function login(LoginRequest $request)
+{
+    $credentials = $request->validated();
+
+    if (! $token = Auth::guard('api')->attempt($credentials)) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Invalid email or password.',
+        ], 401);
+    }
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Login successful.',
+        'data' => [
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => Auth::guard('api')->factory()->getTTL() * 60,
+        ],
+    ], 200);
+}
+
+
 }
