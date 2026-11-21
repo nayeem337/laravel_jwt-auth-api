@@ -22,7 +22,7 @@
 
                     </div>
 
-                    <form>
+                    <form id="loginForm">
 
                         <!-- Email -->
                         <div class="mb-3">
@@ -51,7 +51,7 @@
                         <!-- Login Button -->
                         <div class="d-grid">
 
-                            <button type="button" class="btn btn-primary btn-lg">
+                            <button type="submit" class="btn btn-primary btn-lg">
                                 Login
                             </button>
 
