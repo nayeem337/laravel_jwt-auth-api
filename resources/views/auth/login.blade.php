@@ -22,7 +22,10 @@
 
                     </div>
 
-                    <form id="loginForm">
+                    <form id="loginForm" novalidate>
+
+                        <!-- Validation Feedback -->
+                        <div id="loginMessage" class="alert d-none" role="alert"></div>
 
                         <!-- Email -->
                         <div class="mb-3">
