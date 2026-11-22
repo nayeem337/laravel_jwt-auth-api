@@ -63,4 +63,16 @@ public function login(LoginRequest $request)
 }
 
 
+public function logout(): JsonResponse
+{
+    Auth::guard('api')->logout();
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Successfully logged out.',
+    ], 200);
+}
+
+
+
 }
