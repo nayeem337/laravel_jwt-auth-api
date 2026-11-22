@@ -5,39 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>@yield('title', 'Dashboard - JWT Auth API')</title>
+    <title>@yield('title', 'Dashboard - BusinessFlow ERP')</title>
 
-    <!-- Bootstrap 5 CSS -->
+    {{-- Bootstrap CSS --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    {{-- Bootstrap Icons --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    {{-- Vite Assets --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 
 <body class="bg-light">
 
-    <!-- Dashboard Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid px-4">
+    <div class="d-flex min-vh-100">
 
-            <a class="navbar-brand fw-bold" href="#">
-                JWT Auth API
-            </a>
+        {{-- Sidebar --}}
+        @include('dashboard.components.sidebar')
 
-            <span class="navbar-text text-white">
-                User Dashboard
-            </span>
+        {{-- Main Content Area --}}
+        <div class="flex-grow-1">
+
+            {{-- Navbar --}}
+            @include('dashboard.components.navbar')
+
+            {{-- Page Content --}}
+            <main class="container-fluid px-4 py-4">
+
+                @yield('content')
+
+            </main>
 
         </div>
-    </nav>
 
-    <!-- Dashboard Content -->
-    <main class="container-fluid px-4 py-4">
+    </div>
 
-        @yield('content')
-
-    </main>
-
-    <!-- Bootstrap JavaScript -->
+    {{-- Bootstrap JavaScript --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

@@ -18,3 +18,13 @@ Route::get('/register', function () {
     return view('auth.register');
 })->name('register');
 
+
+
+
+
+// Dashboard page
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard');
+
+
