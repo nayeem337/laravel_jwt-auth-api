@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\AuthController;
 // Public API Routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/refresh', [AuthController::class, 'refresh']);
 
 
 // Protected API Routes
